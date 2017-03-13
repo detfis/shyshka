@@ -1,0 +1,4 @@
+project=shyshka
+architecture=container
+test=minitest
+template=erb
