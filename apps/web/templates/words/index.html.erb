@@ -1,0 +1,26 @@
+<h1>All words</h1>
+
+<div id="words">
+  <div class="word">
+    <h2>kot</h2>
+    <p>cat</p>
+  </div>
+
+  <div class="word">
+    <h2>pies</h2>
+    <p>dog</p>
+  </div>
+</div>
+
+# <% if words.any? %>
+#   <div id="words">
+#     <% words.each do |word| %>
+#       <div class="word">
+#         <h2><%= word.name %></h2>
+#         <p><%= word.translation %></p>
+#       </div>
+#     <% end %>
+#   </div>
+# <% else %>
+#   <p class="placeholder">There are no words yet.</p>
+# <% end %>
