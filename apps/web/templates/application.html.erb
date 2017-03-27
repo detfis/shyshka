@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= javascript 'jquery-3.2.0.min' %>
+    <%= javascript 'bootstrap.min' %>
+    <%= stylesheet 'bootstrap' %>
     <title>Web</title>
     <%= favicon %>
   </head>
-  <body>
+  <body class="container">
     <%= yield %>
   </body>
 </html>
