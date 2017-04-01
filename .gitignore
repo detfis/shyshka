@@ -1,2 +1,4 @@
 /public/assets*
 /tmp
+.DS_Store
+/public/.DS_Store
