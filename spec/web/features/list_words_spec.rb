@@ -1,6 +1,14 @@
 require 'features_helper'
 
 describe 'List words' do
+  let(:repository) { WordRepository.new }
+  before do
+    repository.clear
+
+    repository.create(name: 'pies', translation: 'dog')
+    repository.create(name: 'kot', translation: 'cat')
+  end  
+
   it 'displays list of the words' do
     visit '/'
 

@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Word do
-  # place your tests here
+  it 'can be initialized with attributes' do
+    word = Word.new(name: 'pies', translation: 'dog')
+    word.name.must_equal 'pies'
+    word.translation.must_equal 'dog'
+  end
 end
