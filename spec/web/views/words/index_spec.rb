@@ -18,8 +18,8 @@ describe Web::Views::Words::Index do
   end
 
   describe 'when there are words' do
-    let(:word1)     { Word.new(name: 'pies', translation: 'dog') }
-    let(:word2)     { Word.new(name: 'kot', translation: 'cat') }
+    let(:word1)     { Word.new(name: 'pies', translation: 'dog', id: 1) }
+    let(:word2)     { Word.new(name: 'kot', translation: 'cat', id: 2) }
     let(:exposures) { Hash[words: [word1, word2]] }
 
     it 'lists them all' do

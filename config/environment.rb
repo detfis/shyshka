@@ -31,10 +31,20 @@ Hanami.configure do
     root 'lib/shyshka/mailers'
 
     # See http://hanamirb.org/guides/mailers/delivery
-    delivery do
-      development :test
-      test        :test
+    delivery :test
       # production :smtp, address: ENV['SMTP_PORT'], port: 1025
-    end
   end
+
+  environment :development do
+    # See: http://hanamirb.org/guides/projects/logging
+    logger level: :info
+  end
+
+  environment :production do
+    logger level: :info, formatter: :json
+
+    mailer do
+      delivery :smtp, address: ENV['SMTP_HOST'], port: ENV['SMTP_PORT']
+    end
+  end  
 end

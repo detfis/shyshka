@@ -4,10 +4,22 @@ module Web::Controllers::Words
 
     expose :word
 
-    def call(params)
-      @word = WordRepository.new.create(params[:word])
+    params do
+      required(:word).schema do
+        required(:name).filled(:str?)
+        required(:translation).filled(:str?)
+      end
+    end
 
-      redirect_to '/'      
+    def call(params)
+      if params.valid?
+        @word = WordRepository.new.create(params[:word])
+
+        redirect_to '/'
+      else
+        # @word = Word.new(params[:word])
+        self.status = 422
+      end
     end
   end
 end

@@ -1,7 +1,7 @@
 require 'features_helper'
 
 describe 'Add a word' do
-  after do
+  before do
     WordRepository.new.clear
   end
 
@@ -16,8 +16,21 @@ describe 'Add a word' do
     end
 
     current_path.must_equal('/')
-    save_and_open_page
     assert page.has_content?('All words')
     assert page.has_content?('lion')
   end
+
+  it 'displays list of errors when params contains errors' do
+    visit '/words/new'
+
+    within 'form#word-form' do
+      click_button 'Create'
+    end
+
+    current_path.must_equal('/words')
+
+    assert page.has_content?('There was a problem with your submission')
+    assert page.has_content?('Name must be filled')
+    assert page.has_content?('Translation must be filled')
+  end  
 end

@@ -4,11 +4,19 @@
   <div id="words">
     <% words.each do |word| %>
       <div class="word row">
-        <div class="col-xs-6"><%= word.name %></div>
-        <div class="col-xs-6"><%= word.translation %></div>
+        <div class="col-xs-4"><%= word.name %></div>
+        <div class="col-xs-4"><%= word.translation %></div>
+        <div class="col-xs-4 actions">
+          <%= link_to 'Edit', routes.edit_word_path(word.id) %>
+          <%= link_to 'Delete', routes.destroy_word_path(word.id) %>  
+        </div>
       </div>
     <% end %>
   </div>
 <% else %>
   <p class="placeholder">There are no words yet.</p>
 <% end %>
+
+<div class="buttons">
+  <%= link_to 'New Word', routes.new_word_path, class: 'btn btn-success', title: 'New Word' %>
+</div>
