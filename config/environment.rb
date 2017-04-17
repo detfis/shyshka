@@ -40,6 +40,10 @@ Hanami.configure do
     logger level: :info
   end
 
+  environment :test do
+    logger level: :info, stream: "log/test.log"
+  end
+
   environment :production do
     logger level: :info, formatter: :json
 

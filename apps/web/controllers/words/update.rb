@@ -1,5 +1,5 @@
 module Web::Controllers::Words
-  class Create
+  class Update
     include Web::Action
 
     expose :word
@@ -11,13 +11,13 @@ module Web::Controllers::Words
       end
     end
 
-    def call(params)
+    def call(params)  
       if params.valid?
-        @word = WordRepository.new.create(params[:word])
+        @word = WordRepository.new.update(params[:id], params[:word])
 
         redirect_to '/'
       else
-        @word = Word.new(params[:word])
+        @word = WordRepository.new.find(params[:id])
         self.status = 422
       end
     end

@@ -1,15 +1,14 @@
 module Web::Views::Words
-  class Create
+  class Edit
     include Web::View
     # include Hanami::Helpers
-    template 'words/new'
 
     def form
-      Form.new(:word, '/words')
+      Form.new(:word, "/words/#{word.id}", {word: word}, {method: :patch})
     end
 
     def submit_label
-      'Create'
-    end  
+      'Update'
+    end    
   end
 end
