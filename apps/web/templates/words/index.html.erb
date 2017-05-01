@@ -7,8 +7,10 @@
         <div class="col-xs-4"><%= word.name %></div>
         <div class="col-xs-4"><%= word.translation %></div>
         <div class="col-xs-4 actions">
-          <%= link_to 'Edit', routes.edit_word_path(word.id) %>
-          <%= link_to 'Delete', routes.destroy_word_path(word.id) %>  
+          <%= link_to 'Edit', routes.edit_word_path(word.id) %> 
+          <%= render partial: 'delete_word_button', locals: {word: word} %>
+
+
         </div>
       </div>
     <% end %>

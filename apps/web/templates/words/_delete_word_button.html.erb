@@ -1,0 +1,5 @@
+<%= 
+  form_for :word, routes.destroy_word_path(word.id), method: :delete, class: "delete_word" do
+    submit 'Delete'
+  end
+%>
