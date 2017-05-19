@@ -5,7 +5,7 @@ module Web::Controllers::Words
     expose :word
 
     def call(params)
-      @word = WordRepository.new.find(params[:id])
+      @word = WordRepository.new.find_with_examples(params[:id])
     end
   end
 end

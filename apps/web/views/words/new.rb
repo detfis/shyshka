@@ -3,7 +3,7 @@ module Web::Views::Words
     include Web::View
 
     def form
-      Form.new(:word, '/words')
+      Form.new(:word, '/words', values: {word: word, examples: word.examples})
     end
 
     def submit_label

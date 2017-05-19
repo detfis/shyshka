@@ -8,6 +8,9 @@ module Web::Controllers::Words
       required(:word).schema do
         required(:name).filled(:str?)
         required(:translation).filled(:str?)
+        required(:examples).schema do
+          optional(:text).maybe(:str?)
+        end        
       end
     end
 

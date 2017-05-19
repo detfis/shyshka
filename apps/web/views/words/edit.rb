@@ -4,7 +4,7 @@ module Web::Views::Words
     # include Hanami::Helpers
 
     def form
-      Form.new(:word, "/words/#{word.id}", {word: word}, {method: :patch})
+      Form.new(:word, "/words/#{word.id}", {word: word, examples: word.examples}, {method: :patch})
     end
 
     def submit_label
