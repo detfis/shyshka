@@ -1,0 +1,18 @@
+= form_for form, class: 'form' do
+  - div class: 'input form-group' do
+    - label      :name
+    - text_field :name, class: "form-control"
+
+  - div class: 'input form-group' do
+    - label      :translation
+    - text_field :translation, class: "form-control"
+
+  - div class: 'controls' do
+    - submit submit_label, class: "btn btn-success"
+
+- unless params.valid?
+  .errors
+    %h3 There was a problem with your submission
+    %ul
+      - params.error_messages.each do |message|
+        %li= message

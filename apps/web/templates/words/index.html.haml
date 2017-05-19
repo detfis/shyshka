@@ -1,0 +1,19 @@
+%h1 All words
+
+- if words.any?
+  #words
+    - words.each do |word|
+      .word.row
+        .col-xs-4= word.name
+        .col-xs-4= word.translation
+        .col-xs-4.actions
+          = link_to 'Edit', routes.edit_word_path(word.id)
+          = delete_word_form(word)
+          
+
+
+- else
+  %p.placeholder There are no words yet.
+
+.buttons
+  = link_to 'New Word', routes.new_word_path, class: 'btn btn-success', title: 'New Word'
